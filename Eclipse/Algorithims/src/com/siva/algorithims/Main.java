@@ -7,7 +7,8 @@ public class Main {
 		Algorithims.bubbleSort();
 		System.out.println();
 		Algorithims.selectionSort();
-		
+		System.out.println();
+		Algorithims.insersionSort();
 	}
 
 }

@@ -4,7 +4,7 @@ public class Algorithims {
 
 	public static void bubbleSort() {
 		
-		int arr[] = new int[] {5,8,10,4,2};	
+		int arr[] = new int[] {5,8,10,4,2};	 
 		for(int i=0; i<arr.length-1; i++) {
 			for(int j=0; j<arr.length-1-i;j++) {
 				if(arr[j]>arr[j+1]) {
@@ -23,22 +23,36 @@ public class Algorithims {
 		
 		int arr[] = new int[] {5,8,10,4,2};	
 		for(int i=0; i<arr.length-1; i++) {
-			int min =arr[i];
-			int index = i;
+			int minIndex = i;
 			for(int j=i+1; j<arr.length; j++) {
-				if(arr[j]<min) {
-					min=arr[j];
-					index = j;
+				if(arr[j]<arr[minIndex]) {
+					minIndex = j;
 				}
 			int temp = arr[i];
-			arr[i]=arr[index];
-			arr[index] = temp;
+			arr[i]=arr[minIndex];
+			arr[minIndex] = temp;
 			}
 		}
 		for (int i : arr) {
 			System.out.print(i+" ");
 		}
 		
+	}
+	
+	public static void insersionSort() {
+		int arr[] = new int[] {5,8,10,4,2};	
+		for(int i=0; i<arr.length-1; i++) {
+			int j=i+1;
+			int current = arr[i+1];
+			while(j!=0 && arr[j-1]>current) {
+				arr[j]=arr[j-1];
+				j--;
+			}
+			arr[j]=current;
+		}
+		for (int i : arr) {
+			System.out.print(i+" ");
+		}
 	}
 	
 	
