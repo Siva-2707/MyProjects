@@ -1,4 +1,4 @@
-package com.siva.algorithims;
+package com.siva.algorithms;
 
 public interface SortingAlgorithms {
 	public void bubbleSort();
