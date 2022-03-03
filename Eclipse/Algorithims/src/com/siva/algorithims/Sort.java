@@ -1,8 +1,8 @@
 package com.siva.algorithims;
 
-public class Algorithims {
+public class Sort implements SortingAlgorithms{
 
-	public static void bubbleSort() {
+	public void bubbleSort() {
 		
 		int arr[] = new int[] {5,8,10,4,2};	 
 		for(int i=0; i<arr.length-1; i++) {
@@ -19,7 +19,7 @@ public class Algorithims {
 		}	
 	}
 	
-	public static void selectionSort() {
+	public void selectionSort() {
 		
 		int arr[] = new int[] {5,8,10,4,2};	
 		for(int i=0; i<arr.length-1; i++) {
@@ -39,12 +39,12 @@ public class Algorithims {
 		
 	}
 	
-	public static void insersionSort() {
-		int arr[] = new int[] {5,8,10,4,2};	
+	public void insersionSort() {
+		int arr[] = new int[] {10,5,8,6,5};	
 		for(int i=0; i<arr.length-1; i++) {
 			int j=i+1;
-			int current = arr[i+1];
-			while(j!=0 && arr[j-1]>current) {
+			int current = arr[j];
+			while(j>0 && current<arr[j-1]) {
 				arr[j]=arr[j-1];
 				j--;
 			}
@@ -54,9 +54,5 @@ public class Algorithims {
 			System.out.print(i+" ");
 		}
 	}
-	
-	
-	
-	
 	
 }
