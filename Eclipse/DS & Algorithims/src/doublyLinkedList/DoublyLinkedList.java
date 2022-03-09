@@ -2,7 +2,7 @@ package doublyLinkedList;
 
 
 public class DoublyLinkedList{
-	Node head;
+	public Node head;
 	
 	
 	public void insertAtHead(int data){
@@ -15,7 +15,7 @@ public class DoublyLinkedList{
 		current.setNextNode(this.head);
 		this.head = current;
 		}
-		System.out.println("Created");
+//		System.out.println("Created");
 	}
 	
 	public void showList() {
