@@ -6,29 +6,42 @@ public class LinkedListSort {
 	public static DoublyLinkedList insersionSort(DoublyLinkedList list) {
 		
 		 
-		 Node pointer = list.head.getNextNode();
+		 Node current = list.head.getNextNode();
 		 
 		 
-		 while(pointer != null) {
-			 Node current = pointer;
+		 while(current != null) {
+			 Node currentNext = current.getNextNode();
+			 Node pointer = current.getPreviousNode();
 			 
-			 while(current != null) {
+			 while(pointer != null) {
 				 
-				 if(current.getData()<current.getPreviousNode().getData()) {
-					 
-					 current.getPreviousNode().setNextNode(current.getNextNode());
-					 current.getNextNode().setPreviousNode(current.getPreviousNode());
-					 current.setNextNode(current.getPreviousNode());
-					 current.setPreviousNode(current.getNextNode().getPreviousNode());
-					 current.getNextNode().setPreviousNode(current);
+				 if(current.getData()> current.getPreviousNode().getData()) {
+					 break;
 				 }
 				 
-				 current = current.getPreviousNode();
+				 if(pointer.getPreviousNode() == null || current.getData()> pointer.getData()) {
+					 current.getPreviousNode().setNextNode(current.getNextNode());
+					 current.getNextNode().setPreviousNode(current.getPreviousNode());
+					 current.setNextNode(pointer.getNextNode());
+					 current.setPreviousNode(pointer);
+					 if(pointer.getPreviousNode() == null )
+					 current.getNextNode().setPreviousNode(current);
+				 }
+				 else
+				 {
+//					 current.getPreviousNode().setNextNode(current.getNextNode());
+//					 current.getNextNode().setPreviousNode(current.getPreviousNode());
+//					 current.setNextNode(current.getPreviousNode());
+//					 current.setPreviousNode(current.getNextNode().getPreviousNode());
+//					 current.getNextNode().setPreviousNode(current);
+				 }
+				 
+				 pointer = pointer.getPreviousNode();
 			 }
 			 list.showList();
 			 
+			 current = currentNext;
 			 
-			 pointer = pointer.getNextNode();
 		 }
 		
 		
