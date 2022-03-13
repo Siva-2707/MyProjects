@@ -12,33 +12,37 @@ public class LinkedListSort {
 		 while(current != null) {
 			 Node currentNext = current.getNextNode();
 			 Node pointer = current.getPreviousNode();
-			 
+			 int flag = 0;
 			 while(pointer != null) {
 				 
 				 if(current.getData()> current.getPreviousNode().getData()) {
 					 break;
 				 }
 				 
-				 if(pointer.getPreviousNode() == null || current.getData()> pointer.getData()) {
+				 if(current.getData()> pointer.getData()) {
 					 current.getPreviousNode().setNextNode(current.getNextNode());
 					 current.getNextNode().setPreviousNode(current.getPreviousNode());
 					 current.setNextNode(pointer.getNextNode());
 					 current.setPreviousNode(pointer);
 					 if(pointer.getPreviousNode() == null )
 					 current.getNextNode().setPreviousNode(current);
+					 flag = 1;
+					 break;
 				 }
-				 else
-				 {
-//					 current.getPreviousNode().setNextNode(current.getNextNode());
-//					 current.getNextNode().setPreviousNode(current.getPreviousNode());
-//					 current.setNextNode(current.getPreviousNode());
-//					 current.setPreviousNode(current.getNextNode().getPreviousNode());
-//					 current.getNextNode().setPreviousNode(current);
-				 }
+				
 				 
 				 pointer = pointer.getPreviousNode();
 			 }
-			 list.showList();
+			 if(flag == 0) {
+				 current.getPreviousNode().setNextNode(current.getNextNode());
+				 if(current.getNextNode() != null)
+				 current.getNextNode().setPreviousNode(current.getPreviousNode());
+				 current.setPreviousNode(null);
+				 current.setNextNode(list.head);
+				 list.head.setPreviousNode(current);
+				 list.head = current;
+			 }
+//			 list.showList();
 			 
 			 current = currentNext;
 			 
