@@ -9,7 +9,13 @@ public class CircularQueueDemo {
 		q.enqueue(2);
 		q.enqueue(2);
 		q.dequeue();
-		q.enqueue(3);
+		q.dequeue();
+		q.dequeue();
+		q.dequeue();
+		q.enqueue(4);
+		q.dequeue();
+		
+//		q.enqueue(3);
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.siva.dp;
+package com.siva.dp.singleTon;
 
 public class SingleTonDemo {
 
