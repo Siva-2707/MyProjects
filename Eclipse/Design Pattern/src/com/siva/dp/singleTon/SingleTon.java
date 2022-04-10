@@ -1,4 +1,4 @@
-package com.siva.dp;
+package com.siva.dp.singleTon;
 
 public class SingleTon {  // Can create only one instance for this class
 	

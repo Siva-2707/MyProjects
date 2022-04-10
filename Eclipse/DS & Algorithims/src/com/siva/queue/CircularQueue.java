@@ -9,48 +9,61 @@ public class CircularQueue {
 		this.size = size;
 		arr = new int[size];
 	}
+	private boolean firstEnqueue = true;
 	
 	
 	public void  enqueue(int data) {
-		if(tail == -1 && head == -1)
+		if(firstEnqueue) {
 			head = 0;
-		
-		if(tail == size-1) {
-			if(tail-head<size)
-				tail = -1;
-			else { 
-				System.out.println("Queue is full");
-				return;
-			}
+			arr[++tail] = data;
+			firstEnqueue = false;
+			return;
+			
 		}
 		
-		if(tail<head && head-tail == 1 ) {
+		if(tail == size-1) {
+				tail = -1;
+		}
+		
+		if(tail == head -1) {
 			System.out.println("Queue is full");
 			return;
 		}
-		
-		arr[++tail] = data;	
-		
-		
+		arr[++tail] = data;
+	
 	}
+	private boolean isEmpty = false;
 	
 	public void dequeue() {
-		boolean isEmpty = false;
-		if(head == size -1) {
-			System.out.println(arr[head]);
-			head = 0;
+		
+		if(isEmpty && head == tail ) {
+			System.out.println("Queue is empty");
 			return;
 		}
-		if(head == tail && tail!= -1) {
+		
+		if(head == tail && !isEmpty) {
 			System.out.println(arr[head]);
 			isEmpty = true;
 			return;
 		}
-		if(!isEmpty)
-		System.out.println(arr[head++]);
+		if(head != tail ){
+			isEmpty = false;
+		}
 		
-		
-		
+		if(!isEmpty) {
+			
+			System.out.println(arr[head]);
+			
+			if( head == size - 1 )
+				head = 0; 
+			else
+				head++;
+		}
+		else{
+			System.out.println("Queue is empty");
+			
+		}
+			
 	}
 	public void peek() {
 		
