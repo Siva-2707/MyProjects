@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: cadetblue;
+    background-image: -webkit-linear-gradient(darkred,darkgrey,cadetblue);
+    min-height: 800px;
+}
+
+#game{
+    height: 500px;
+    width: 400px;
+    border: 1px solid black;
+    background: url(download.jpeg);
+    background-size: contain;
+    margin: 1rem auto;
+    overflow: hidden;   
+}
+
+#block{
+    width: 50px;
+    height: 500px;
+    background-color: blue;
+    position: relative;
+    left: 400px;
+    /* animation: block linear infinite 4s; */
+}
+
+@keyframes block {
+    0%{
+        left: 400px;
+    }
+    100%{
+        left: 0px;
+    }
+}
+
+#hole{
+    height: 150px;
+    width: 50px;
+    background-color: yellow;
+    position: relative;
+    left: 400px;
+    top: -500px;
+    /* animation: block linear infinite 4s; */
+
+}
+
+#bird{
+
+
+    top: -650px;
+    height: 50px;
+    width: 50px;
+    position: relative;
+    
+}
+
+#bird img{
+    height: 50px;
+    width: 50px;
+    transform: scaleX(-1);
+}
+
+#result{
+    height: 200px;
+    width: 500px;
+    background-color: brown;
+    margin: 5rem auto;
+    border: 2px solid white;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+}
+
+#result button{
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 11px;
+    background-color: green;
+    color: white;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+#text{
+    margin-top: 1rem;
+    font-size: 2rem;
+    color: seashell;
+}
+
+#startGame{
+    margin: 1rem 40%;
+    padding: 10px;
+    left: 100px;
+    position: relative;
+}
+#scoreBoard{
+    position: relative;
+    bottom: 10px;
+    left: 400px;
+    right: 300px;
+    padding: 5px;
+    overflow: visible;
+    background-color: green;
+    border: 5px solid black ;
+    visibility: hidden;
+    
+}
