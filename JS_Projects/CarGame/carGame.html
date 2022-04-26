@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CarGame</title>
+    <link rel="stylesheet" href="carGame.css">
+  </head>
+  <body>
+    <div id="gameArea" >
+        <img id="road" src="road.jpg" alt="road">
+        <button id="startGame">Start Game</button>
+        <div id ='redCar'><img src="redCar.png" alt="redCar"></div>
+        <div id ='blueCar'><img src="blueCar.png" alt="blueCar"></div>
+    </div>
+    <div id="result">
+      <h2>Game Over</h2>
+      <p id="score"></p>
+      <button id="restart" onclick="location.reload()">Restart</button>
+    </div>
+    <script src="carGame.js"></script>
+  </body>
+</html>

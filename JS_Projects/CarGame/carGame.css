@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: white;
+    background-image: -webkit-linear-gradient( black,darkgrey,white);
+    min-height: 950px;
+
+}
+
+#gameArea{
+    height: 500px;
+    width: 390px;
+    border: 1px solid black;
+    margin: 1rem auto;
+    position: relative;
+    top: 150px;
+    
+
+    overflow: hidden;
+}
+#road{
+    transform: rotate(90deg);
+}
+#road{
+    height: 390px;
+    width: 500px;
+    position: relative;
+    right: 55px;    
+    top: 55px;
+
+}
+
+#blueCar{
+    height: 100px;
+    width: 130px;
+    background-color: blue;
+    position: relative;
+    bottom: 550px;
+    text-align: center;
+    animation: move 1s linear infinite;
+}
+@keyframes move {
+    0%{
+        bottom:550px;
+    }
+    100%{
+        bottom:0px;
+    }
+}
+#blueCar img{
+    transform: rotate(90deg);
+    position: relative;
+    top: 25px;
+    height: 50px;
+    width: 100px;
+    
+}
+
+#redCar{
+    height: 100px;
+    width: 130px;
+    background-color: red;
+    position: relative;
+    top:-15px;
+    left:260px;
+    text-align: center;
+    animation: mover 1s linear infinite;
+}
+#redCar img{
+    height: 50px;
+    width: 100px;
+    position: relative;
+    top: 25px;
+    transform: rotate(270deg);
+}
+
+#result{
+    height: 200px;
+    width: 400px;
+    border: solid black 1px;
+    background-color: tomato;
+    margin: 1rem auto;
+    border-radius: 20px;
+    font-size: 30px;
+    text-align: center;
+    color: slategray;
+    visibility: hidden;
+}
+#result > h2{
+    color: black  ;
+}
+#restart{
+    padding: 10px;
+    margin-top: 1rem;
+    background-color: slategray;
+    color: aliceblue;
+    border: 1px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+}

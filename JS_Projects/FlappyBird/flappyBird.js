@@ -19,7 +19,7 @@ function startGame(){
     hole.style.animation = animationSettings;
     start.style.visibility = 'hidden';
 
-    hole.addEventListener('animationiteration' , RanHole);// Need reference
+    hole.addEventListener('animationiteration' , RanHole);// Need reference  
 
     function RanHole(){
         var random =  -((Math.random()*350)+150);
@@ -31,7 +31,7 @@ function startGame(){
         var birdPosition = parseInt(window.getComputedStyle(bird).getPropertyValue('top'));
         console.log('In fall');
         if(jumping == 0){
-            bird.style.top = (birdPosition+2) +'px';
+            bird.style.top = (birdPosition+4) +'px';
         }
         var holeTop = parseInt(window.getComputedStyle(hole).getPropertyValue('top'));
         var holeLeft = parseInt(window.getComputedStyle(hole).getPropertyValue('left'));
@@ -50,8 +50,8 @@ function startGame(){
     function hop(){
         jumping = 1 ;
         var birdPosition = parseInt(window.getComputedStyle(bird).getPropertyValue('top'));
-        if(birdPosition > -600){
-            bird.style.top = (birdPosition - 50)+'px';
+        if(birdPosition > -590){
+            bird.style.top = (birdPosition - 60)+'px';
         }
         setTimeout( ()=>{
             jumping = 0;
