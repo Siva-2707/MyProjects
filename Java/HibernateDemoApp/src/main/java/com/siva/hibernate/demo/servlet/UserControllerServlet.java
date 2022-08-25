@@ -1,6 +1,7 @@
 package com.siva.hibernate.demo.servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,14 +17,14 @@ import com.siva.hibernate.demo.controller.UserController;
 /**
  * Servlet implementation class UserContollerServlet
  */
-@WebServlet("/UserContollerServlet")
-public class UserContollerServlet extends HttpServlet {
+@WebServlet("/UserControllerServlet")
+public class UserControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserContollerServlet() {
+    public UserControllerServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,10 +41,12 @@ public class UserContollerServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getAttribute("submit") == "insert") {
+		String val = request.getParameter("operation") ;
+		if(val.equals("insert")) {
 			User user = new User();
-			user.setName((String)request.getAttribute("name"));
-			user.setAge((Integer)request.getAttribute("age"));
+			user.setName((String)request.getParameter("name"));
+			user.setAge(Integer.parseInt(request.getParameter("age")));
+			user.setUserId(Integer.parseInt(request.getParameter("userId")));
 			UserController controller = new UserController();
 			controller.insertUser(user);
 			

@@ -4,14 +4,17 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.Generated;
 
 
 @Entity
 public class User {
-	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id;
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	int userId;
 	@Column(nullable =  false)
 	String name;
