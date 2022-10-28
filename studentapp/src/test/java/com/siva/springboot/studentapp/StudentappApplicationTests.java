@@ -1,10 +1,10 @@
-package com.siva.springboot.firstProject;
+package com.siva.springboot.studentapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FirstProjectApplicationTests {
+class StudentappApplicationTests {
 
 	@Test
 	void contextLoads() {

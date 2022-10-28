@@ -1,0 +1,84 @@
+Java
+
+
+Roles:
+-MD
+-Others
+
+Employee Details:
+
+Photo(Optional)
+Emp Code
+Name
+Qualification
+Catogory
+Sub - Catogory
+DOB
+Age
+Department
+Date of Joining 
+Total Exp
+Current Exp
+Previous Exp <List>
+Other Details
+
+
+Appraisal Year 
+Appraisal Grade
+
+
+
+
+Services:
+
+
+Available Balances:
+
+
+
+
+Employee_Details 
+
+1)EMP_CODE
+2)EMP_NAME
+3)ADDRESS
+4)CONTACT
+5)DESIGINATION
+6)DESIGINATION_LEVEL
+7)DATE_OF_BIRTH
+8)AGE
+9)EDUCATION_BACKGROUND
+10)DEPARTMENT
+11)DATE OF JOINING
+12)CURRENT_EXP
+13)PREVIOUS_EXP
+Other
+
+EMP_CONTACT
+- CONTACT1
+- CONTACT2
+- EMRGNCY_CONTACT
+- CURRENT_ADDRESS
+- PERMNT_ADDRESS
+
+EMP_DETAILS
+- EMP_CODE
+- EMP_NAME
+- DESIGINATION
+- DESIGINATION_LEVEL
+- DATE_OF_BIRTH
+- AGE
+- DEPARTMENT
+- DATA_OF_JOINING
+- CRNT_EXP (Current company)
+- TOTAL_EXP (All company)
+
+EMP_EDUCATION
+- INSTITUTION
+- COURSE
+- FROM_YEAR
+- TO_YEAR
+- GRADE
+
+PAST_EXP
+- 
