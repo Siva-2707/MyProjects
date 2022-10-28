@@ -1,0 +1,162 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    height: 0;
+}
+body{
+    background-color: #202124;
+    font-size: 14px;
+    font-family: arial,sans-serif;
+}
+body, input, button{
+    color: #bdc1c6;
+}
+a{
+    text-decoration: none;
+}
+
+/* ==================== Nav bar ================== */
+header{
+    height: 48px;
+    padding: 6px;
+}
+.nav-bar{
+    float: right;
+    margin: 0;
+    height: 48px;
+    list-style: none;
+    padding: 0px 4px 0px 32px;
+}
+.headerDiv{
+    height: 48px;
+    display: flex;
+    float: right;
+    align-items: center;
+}
+.navLinks{
+    padding-right: 15px;
+    height: fit-content;
+}
+.navLinks a{
+    padding-left: 15px;
+    height: fit-content;
+    color: white;
+    text-decoration: none;
+    font: 13px arial,sans-serif;
+}
+/* ==================== Google Icon ================== */
+
+.googleContainer{
+    min-height: 290px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.googleContainer img{
+    margin-top: 165px;
+}
+
+/* ==================== Search Container================ */
+.searchContainer{
+    /* border: 1px solid white ; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.searchBar{
+    border: 0.5px solid #e8eaed7c;
+    display: flex;
+    flex-direction: row;
+    border-radius:25px ;
+    height: 35px;
+    width: 564px;
+    align-items: center;
+    padding: 5px 8px 0px 14px;
+}
+.searchBar a{
+    padding: 0px 8px;
+}
+.searchBar a:first-child{
+    padding-right:13px ;
+}
+.searchBar a:first-child:hover{
+    cursor: default;
+}
+.searchBar:first-child input{
+    background-color: transparent;
+    border: none;
+    height: 34px;
+    width: 443px;
+    margin-bottom:5px;
+}
+.searchBar:first-child input:focus{
+    outline: none;
+}
+.searchBar:hover{
+    background-color: #303134;
+    border-color: #303134;
+}
+
+.searchButtonContainer{
+    padding-top: 18px ;
+    height: 70px;
+}
+.searchButtonContainer input{
+    background-color: #303134;
+    border: 1px solid #303134;
+    color: #e8eaed;
+    border-radius: 4px;
+    font-size: 14px;
+    margin: 11px 4px;
+    padding: 0 16px;
+    line-height: 27px;
+    height: 36px;
+    min-width: 54px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* ==================== Language Container ================ */
+.langugeContainer{
+    height: 370px;
+    text-align: center;
+}
+.langugeContainer a{
+    padding: 0px 3px;
+    color: #8ab4f8;
+    text-decoration: none;
+}
+/* ==================== Footer ================ */
+footer{
+    color: #9aa0a6;
+    display: block;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background-color: black;
+}
+footer a{
+    color: #9aa0a6;
+}
+.india{
+    padding: 15px 30px;
+    border-bottom: 0.5px solid #303134 ;
+}
+.details{
+    display: flex;
+    padding: 0px 20px 0px 20px;
+    align-items: center;
+    justify-content: space-between;
+    height: 47px;
+}
+.details a{
+    padding: 15px;
+}
+
+
+
+/* Some CSS that are global and are added at the end */
+a:hover{
+    text-decoration: underline;
+}
