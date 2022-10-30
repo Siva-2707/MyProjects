@@ -1,0 +1,76 @@
+/* =======================  For the Header Block===================*/
+.header-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 100vh;
+}
+.bg-style {
+  background-color: white;
+  width: 55%;
+  height: 100%;
+  transition: var(--transition);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  clip-path: polygon(0 0, 0 100%, 52% 100%);
+}
+.header-content .left-header {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+}
+.header-content .left-header h1 {
+  color: var(--color-black);
+  font-size: 4rem;
+  font-weight: 1000;
+}
+.header-content .left-header .bg-style {
+  background-color: var(--color-white);
+}
+.header-content .right-header {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  width: 70%;
+}
+.header-content .right-header p {
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+.header-content .right-header h1 {
+  font-weight: 100;
+}
+.creatorName {
+  color: var(--color-black);
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+/* Button */
+.btn {
+  width: fit-content;
+  cursor: pointer;
+  border: var(--color-black) solid 1px;
+  padding-left: 10px;
+  border-radius: 2em;
+  transition: var(--transition);
+}
+.btn:hover {
+  color: var(--color-black);
+  border-color: var(--color-white);
+  transform: translateX(0%);
+  background-color: var(--color-white);
+}
+.download {
+  font-weight: bold;
+}
+.download i {
+  color: var(--color-black);
+  background-color: var(--color-white);
+  padding: 10px;
+  border-radius: 50%;
+}
+/* =====================End of Header block===================*/

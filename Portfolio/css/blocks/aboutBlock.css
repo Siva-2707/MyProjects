@@ -1,0 +1,43 @@
+.content-area {
+  margin: 0 auto;
+  width: 80%;
+  padding: 1rem 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.sec2-abt {
+  padding: 1rem 0;
+}
+.sec2-abt h1 {
+  font-size: 2.5rem;
+  padding-bottom: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-style: italic;
+}
+.sec2-abt h3 {
+  padding-bottom: 1rem;
+}
+.desc {
+  display: flex;
+  flex-wrap: nowrap;
+}
+/* .desc h4 {
+  width: 20vw;
+} */
+.skill-container > div h1,
+.tools-container > div h1 {
+  padding: 0;
+}
+.skill-container > div ul,
+.tools-container > div ul {
+  display: flex;
+  justify-content: center;
+}
+.skill-container > div li,
+.tools-container > div li {
+  padding: 1rem;
+  font-size: 1.5rem;
+}

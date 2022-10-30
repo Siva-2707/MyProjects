@@ -1,0 +1,37 @@
+/* For side cotroller  */
+.controls {
+  position: fixed;
+  z-index: 10;
+  right: 3%;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-50%);
+  justify-items: center;
+  align-items: center;
+}
+.controls .control {
+  margin: 0.7rem 0;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  background-color: var(--color-grey-4);
+  box-shadow: var(--box-shadow-1);
+}
+.controls .control i {
+  font-size: 1.2rem;
+  color: var(--color-grey-2);
+  pointer-events: none;
+}
+.controls .control.active-btn {
+  background-color: var(--color-secondary);
+  transition: var(--transition);
+}
+.controls .control.active-btn i {
+  color: var(--color-white);
+}
