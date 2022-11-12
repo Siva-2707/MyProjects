@@ -4,6 +4,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -14,13 +16,17 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.siva.springboot.tour_project.Model.Difficulty;
+import com.siva.springboot.tour_project.Model.Region;
 import com.siva.springboot.tour_project.Service.TourPackageService;
 import com.siva.springboot.tour_project.Service.TourService;
 
 @SpringBootApplication
 public class TourProjectApplication implements CommandLineRunner{
 
-	@Value("${ec.importfile}")
+	private Logger LOG = LoggerFactory.getLogger(TourProjectApplication.class);
+
+	@Value("${importfile}")
 	private String importFile;
 
 	@Autowired
@@ -32,21 +38,19 @@ public class TourProjectApplication implements CommandLineRunner{
 		SpringApplication.run(TourProjectApplication.class, args);
 	}
 
-	public void loadTourAtStarup() throws IOException{
-		createTourPackages();
-		long totalPackages = tourPackageService.total();
-		System.out.println(totalPackages);
-		createTours(importFile);
-		long totalTours = tourService.total();
-		System.out.println(totalTours);
-
-	}
+	
 
 	
 
 	@Override
 	public void run(String... args) throws Exception {
-		loadTourAtStarup();		
+		createTourPackages();
+		long totalPackages = tourPackageService.total();
+		LOG.info("Total packages: "+totalPackages);
+		createTours(importFile);
+		long totalTours = tourService.total();
+		LOG.info("Total tours: "+totalTours);
+	
 	}
 
 
@@ -96,8 +100,8 @@ public class TourProjectApplication implements CommandLineRunner{
 			return blurb;
 		}
 
-		public String getPrice() {
-			return price;
+		public Integer getPrice() {
+			return Integer.parseInt(price);
 		}
 
 		public String getLength() {
@@ -112,12 +116,12 @@ public class TourProjectApplication implements CommandLineRunner{
 			return keywords;
 		}
 
-		public String getDifficulty() {
-			return difficulty;
+		public Difficulty getDifficulty() {
+			return Difficulty.valueOf(difficulty.toUpperCase());
 		}
 
-		public String getRegion() {
-			return region;
+		public Region getRegion() {
+			return Region.findByLabel(region);
 		}
 
 				

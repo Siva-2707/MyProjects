@@ -23,6 +23,7 @@ public class Tour {
 
     private Integer price;
     private String duration;
+    @Column(length = 2000)
     private String bullets;
     private String keywords;
 
