@@ -139,8 +139,15 @@ public class Tour {
         this.region = region;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Tour [id=" + id + ", title=" + title + ", description=" + description + ", blur=" + blur + ", price="
+                + price + ", duration=" + duration + ", bullets=" + bullets + ", keywords=" + keywords
+                + ", tourPackage=" + tourPackage + ", difficulty=" + difficulty + ", region=" + region + "]";
+    }
 
+    
+    
     
 
 }
