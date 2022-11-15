@@ -1,6 +1,6 @@
 package com.siva.springboot.tour_project.Model;
 
-public enum Region{
+public enum Region {
     CentralCoast("Central Coast"),
     NorthernCalifornia("Northern California"),
     SouthernCalifornia("Southern California"),
@@ -8,18 +8,20 @@ public enum Region{
 
     private String label;
 
-    private Region(String label){ 
+    private Region(String label) {
         this.label = label;
     }
 
-    public static Region findByLabel(String byLabel){
+    public static Region findByLabel(String byLabel) {
         for (Region region : Region.values()) {
-            if(region.label.equalsIgnoreCase(byLabel))
+            if (region.getLabel().equalsIgnoreCase(byLabel))
                 return region;
         }
         return null;
     }
 
-
+    public String getLabel() {
+        return label;
+    }
 
 }

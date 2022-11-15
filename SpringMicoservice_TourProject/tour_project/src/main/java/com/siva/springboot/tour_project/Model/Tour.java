@@ -1,13 +1,15 @@
 package com.siva.springboot.tour_project.Model;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
-
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.siva.springboot.tour_project.Converter.RegionConverter;
 
 @Entity
 public class Tour {
@@ -19,7 +21,7 @@ public class Tour {
     @Column(length = 2000)
     private String description;
     @Column(length = 2000)
-    private String blur;
+    private String blurb;
 
     private Integer price;
     private String duration;
@@ -30,16 +32,17 @@ public class Tour {
     @ManyToOne
     private TourPackage tourPackage;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Difficulty difficulty;
-    @Enumerated
+
+    @Convert(converter = RegionConverter.class)
     private Region region;
 
-    public Tour( String title, String description, String blur, Integer price, String duration,
+    public Tour(String title, String description, String blur, Integer price, String duration,
             String bullets, String keywords, TourPackage tourPackage, Difficulty difficulty, Region region) {
         this.title = title;
         this.description = description;
-        this.blur = blur;
+        this.blurb = blur;
         this.price = price;
         this.duration = duration;
         this.bullets = bullets;
@@ -49,7 +52,8 @@ public class Tour {
         this.region = region;
     }
 
-    protected Tour(){}
+    protected Tour() {
+    }
 
     public Integer getId() {
         return id;
@@ -75,12 +79,12 @@ public class Tour {
         this.description = description;
     }
 
-    public String getBlur() {
-        return blur;
+    public String getBlurb() {
+        return blurb;
     }
 
-    public void setBlur(String blur) {
-        this.blur = blur;
+    public void setBlurb(String blur) {
+        this.blurb = blur;
     }
 
     public Integer getPrice() {
@@ -141,13 +145,9 @@ public class Tour {
 
     @Override
     public String toString() {
-        return "Tour [id=" + id + ", title=" + title + ", description=" + description + ", blur=" + blur + ", price="
+        return "Tour [id=" + id + ", title=" + title + ", description=" + description + ", blurb=" + blurb + ", price="
                 + price + ", duration=" + duration + ", bullets=" + bullets + ", keywords=" + keywords
                 + ", tourPackage=" + tourPackage + ", difficulty=" + difficulty + ", region=" + region + "]";
     }
-
-    
-    
-    
 
 }
