@@ -1,6 +1,6 @@
 package com.siva.goal;
 
-
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -12,10 +12,10 @@ import com.siva.goal.model.Employee;
 import com.siva.goal.service.EmployeeService;
 
 @SpringBootApplication
-public class GoalApplication implements CommandLineRunner{
+public class GoalApplication implements CommandLineRunner {
 
 	private final EmployeeService employeeService;
-	
+
 	@Autowired
 	public GoalApplication(EmployeeService employeeService) {
 		this.employeeService = employeeService;
@@ -32,7 +32,10 @@ public class GoalApplication implements CommandLineRunner{
 		employee.setFirstName("Siva");
 		employee.setLastName("Bala");
 		employee.setEmail("siva@gmail.com");
-		employee.getEducationBackgrounds().add(new EducationBackground("SMVEC",5, "2021",85));
+		List<EducationBackground> list = employee.getEducationBackgrounds();
+		list.add(new EducationBackground("SMVEC", 5, "2021", 85));
+		list.add(new EducationBackground("AHSS", 5, "2017", 95));
+		employee.setEducationBackgrounds(list);
 		employeeService.createEmployee(employee);
 	}
 }

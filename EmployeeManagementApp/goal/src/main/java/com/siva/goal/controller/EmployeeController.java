@@ -1,35 +1,56 @@
 package com.siva.goal.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.siva.goal.model.Employee;
 import com.siva.goal.service.EmployeeService;
 
-@RestController()
-@RequestMapping("/api")
+@Controller
+@RequestMapping("/employee")
 public class EmployeeController {
 
-    private EmployeeService employeeService;
+    private final EmployeeService employeeService;
 
     @Autowired
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 
-
-    @GetMapping(path = "/employees")
-    public List<Employee> getAllEmployees(){
-        return employeeService.getAllEmployees();
+    @GetMapping("/allEmployees")
+    public String getEmployees(Model model) {
+        model.addAttribute("employees", employeeService.getAllEmployees());
+        return "employees";
     }
-    
-    @GetMapping(path = "/employee/{empCode}")
-    public Employee getEmployee(@PathVariable int empCode){
-        return employeeService.getEmployeeWithCode(empCode);
+
+    @GetMapping()
+    public String getEmployee(@RequestParam(name = "id") int id, Model model) {
+        model.addAttribute("employee", employeeService.getEmployeeWithCode(id));
+        return "employee";
+    }
+
+    @GetMapping("/createEmployee")
+    public String createEmployeePage(Model model) {
+        model.addAttribute("employee", new Employee());
+        return "createEmployee";
+    }
+
+    @PostMapping("/create")
+    public String createEmployee(@ModelAttribute(name = "employee") Employee employee, Model model) {
+        employeeService.createEmployee(employee);
+        model.addAttribute("employees", employeeService.getAllEmployees());
+        return "employees";
+    }
+
+    @DeleteMapping("/delete")
+    public void deleteEmployee(@RequestParam(name = "id") int id) {
+        employeeService.deleteEmployee(id);
     }
 }
