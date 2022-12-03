@@ -3,7 +3,6 @@ package com.siva.goal.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,7 +36,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/createEmployee")
-    public String createEmployeePage(Model model) {
+    public String createEmployeeForm(Model model) {
         model.addAttribute("employee", new Employee());
         return "createEmployee";
     }
@@ -45,12 +44,13 @@ public class EmployeeController {
     @PostMapping("/create")
     public String createEmployee(@ModelAttribute(name = "employee") Employee employee, Model model) {
         employeeService.createEmployee(employee);
-        model.addAttribute("employees", employeeService.getAllEmployees());
-        return "employees";
+        return "redirect:/employee/allEmployees";
     }
 
-    @DeleteMapping("/delete")
-    public void deleteEmployee(@RequestParam(name = "id") int id) {
+    @GetMapping("/delete/{id}")
+    public String deleteEmployee(@RequestParam(name = "id") int id, Model model) {
         employeeService.deleteEmployee(id);
+        return "redirect:/employee/allEmployees";
+
     }
 }

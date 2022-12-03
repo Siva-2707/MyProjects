@@ -12,10 +12,19 @@
         <th>ID</th>
         <th>Name</th>
         <th>Email</th>
+        <th>Gender</th>
         <tr th:each="employee: ${employees}">
           <td th:text="${employee.id}"></td>
           <td th:text="${employee.firstName}"></td>
           <td th:text="${employee.email}"></td>
+          <td th:text="${employee.gender}"></td>
+          <td>
+            <button>
+              <a th:href="@{/employee/delete/{$id}(id=${employee.id})}"
+                >Delete</a
+              >
+            </button>
+          </td>
         </tr>
       </table>
     </div>

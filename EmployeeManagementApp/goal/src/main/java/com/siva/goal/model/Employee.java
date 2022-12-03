@@ -1,11 +1,10 @@
 package com.siva.goal.model;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -47,28 +46,22 @@ public class Employee {
         @Column(nullable = false)
         private String lastName;
 
+        private String gender;
+
+        private String address;
+
+        private String city;
+
+        private String state;
+
+        private String pincode;
+
         @Embedded
-        @AttributeOverrides({
-                        @AttributeOverride(name = "doorNumber", column = @Column(name = "home_door_number")),
-                        @AttributeOverride(name = "street", column = @Column(name = "home_street")),
-                        @AttributeOverride(name = "city", column = @Column(name = "home_city")),
-                        @AttributeOverride(name = "pincode", column = @Column(name = "home_pincode"))
-        })
-        private Address homeAddress;
-        @Embedded
-        @AttributeOverrides({
-                        @AttributeOverride(name = "doorNumber", column = @Column(name = "office_door_number")),
-                        @AttributeOverride(name = "street", column = @Column(name = "office_street")),
-                        @AttributeOverride(name = "city", column = @Column(name = "office_city")),
-                        @AttributeOverride(name = "pincode", column = @Column(name = "office_pincode"))
-        })
-        private Address officeAddress;
-        @Embedded
-        private List<Contact> contacts;
+        private List<Contact> contacts = new ArrayList<>();
 
         private String desigination;
 
-        private Date dateOfBirth;
+        private LocalDate dateOfBirth;
 
         @Transient
         private int empAge;
@@ -78,7 +71,7 @@ public class Employee {
 
         private String department;
 
-        private Date dateOfJoining;
+        private LocalDate dateOfJoining;
 
         @Transient
         private int currentCompanyExperience;
@@ -89,26 +82,12 @@ public class Employee {
         @JoinColumn(name = "emp_id", referencedColumnName = "id")
         private List<EducationBackground> educationBackgrounds = new ArrayList<>();
 
-        public Employee(String firstName, String lastName, Address homeAddress, Address officeAddress,
-                        List<Contact> contacts,
-                        String desigination, Date dateOfBirth, int empAge, String email, String department,
-                        Date dateOfJoining,
-                        int currentCompanyExperience, int totalExperience,
-                        List<EducationBackground> educationBackgrounds) {
-                this.firstName = firstName;
-                this.lastName = lastName;
-                this.homeAddress = homeAddress;
-                this.officeAddress = officeAddress;
-                this.contacts = contacts;
-                this.desigination = desigination;
-                this.dateOfBirth = dateOfBirth;
-                this.empAge = empAge;
-                this.email = email;
-                this.department = department;
-                this.dateOfJoining = dateOfJoining;
-                this.currentCompanyExperience = currentCompanyExperience;
-                this.totalExperience = totalExperience;
-                this.educationBackgrounds = educationBackgrounds;
+        public int getEmpAge() {
+                return Period.between(dateOfBirth, LocalDate.now()).getYears();
+        }
+
+        public int getCurrentCompanyExperience() {
+                return Period.between(dateOfJoining, LocalDate.now()).getYears();
         }
 
 }
