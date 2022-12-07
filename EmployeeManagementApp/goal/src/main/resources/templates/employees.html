@@ -20,9 +20,7 @@
           <td th:text="${employee.gender}"></td>
           <td>
             <button>
-              <a th:href="@{/employee/delete/{$id}(id=${employee.id})}"
-                >Delete</a
-              >
+              <a th:href="@{/delete/{$id}(id=${employee.id})}">Delete</a>
             </button>
           </td>
         </tr>

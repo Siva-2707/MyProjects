@@ -9,6 +9,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,6 +20,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,12 +45,14 @@ public class Employee {
         private int id;
 
         @Column(nullable = false)
+        @NotBlank
         private String firstName;
 
         @Column(nullable = false)
         private String lastName;
 
-        private String gender;
+        @Enumerated(EnumType.STRING)
+        private Gender gender;
 
         private String address;
 
@@ -67,6 +73,7 @@ public class Employee {
         private int empAge;
 
         @Column(nullable = false)
+        @Email
         private String email;
 
         private String department;

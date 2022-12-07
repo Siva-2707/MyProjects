@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.siva.goal.model.EducationBackground;
 import com.siva.goal.model.Employee;
+import com.siva.goal.model.Gender;
 import com.siva.goal.service.EmployeeService;
 
 @SpringBootApplication
@@ -31,6 +32,7 @@ public class GoalApplication implements CommandLineRunner {
 		employee.setId(1);
 		employee.setFirstName("Siva");
 		employee.setLastName("Bala");
+		employee.setGender(Gender.MALE);
 		employee.setEmail("siva@gmail.com");
 		List<EducationBackground> list = employee.getEducationBackgrounds();
 		list.add(new EducationBackground("SMVEC", 5, "2021", 85));

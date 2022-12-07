@@ -1,19 +1,19 @@
 package com.siva.goal.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.siva.goal.model.Employee;
 import com.siva.goal.service.EmployeeService;
 
 @Controller
-@RequestMapping("/employee")
 public class EmployeeController {
 
     private final EmployeeService employeeService;
@@ -37,25 +37,29 @@ public class EmployeeController {
 
     @GetMapping("/createEmployee")
     public String createEmployeeForm(Model model) {
-        model.addAttribute("employee", new Employee());
         return "createEmployee";
     }
 
+    @ModelAttribute("employee")
+    public Employee getEmployee() {
+        return new Employee();
+    }
+
     @PostMapping("/create")
-    public String createEmployee(@ModelAttribute(name = "employee") Employee employee, Model model) {
+    public String createEmployee(@Valid @ModelAttribute(name = "employee") Employee employee) {
         employeeService.createEmployee(employee);
-        return "redirect:/employee/allEmployees";
+        return "redirect:/allEmployees";
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteEmployee(@RequestParam(name = "id") int id, Model model) {
+    public String deleteEmployee(@RequestParam(name = "id") int id) {
         employeeService.deleteEmployee(id);
-        return "redirect:/employee/allEmployees";
+        return "redirect:/allEmployees";
 
     }
 
     @GetMapping("/search")
-    public String searchEmployee(@RequestParam (name="name") String name, Model model){
+    public String searchEmployee(@RequestParam(name = "name") String name, Model model) {
         model.addAttribute("employees", employeeService.findByName(name));
         return "employees";
     }
