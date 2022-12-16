@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.form {
+  margin: 2rem 20%;
+}
+.gender {
+  display: inline-flex;
+}
+.gender:first-child label {
+  margin-bottom: 0;
+  margin-right: 10px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+}
+.gender-row {
+  margin-bottom: 10px;
+}

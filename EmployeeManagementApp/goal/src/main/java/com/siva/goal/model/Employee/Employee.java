@@ -1,4 +1,4 @@
-package com.siva.goal.model;
+package com.siva.goal.model.Employee;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -11,17 +11,23 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+
+import com.siva.goal.model.Contact;
+import com.siva.goal.model.Enum.Gender;
+import com.siva.goal.model.Family.FamilyDetails;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -85,8 +91,12 @@ public class Employee {
 
         private int totalExperience;
 
-        @OneToMany(targetEntity = EducationBackground.class, cascade = CascadeType.ALL)
-        @JoinColumn(name = "emp_id", referencedColumnName = "id")
+        @OneToOne(cascade = CascadeType.ALL)
+        @JoinColumn(name = "fam_dtl_pk", referencedColumnName = "id")
+        private FamilyDetails familyDetails;
+
+        @OneToMany(targetEntity = EducationBackground.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+        @JoinColumn(name = "edu_bgrd_pk", referencedColumnName = "id")
         private List<EducationBackground> educationBackgrounds = new ArrayList<>();
 
         public int getEmpAge() {

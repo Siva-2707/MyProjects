@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.siva.goal.model.Employee;
+import com.siva.goal.model.Employee.Employee;
 import com.siva.goal.service.EmployeeService;
 
 @Controller
@@ -23,21 +23,24 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
+    // Get all the employees
     @GetMapping("/allEmployees")
     public String getEmployees(Model model) {
         model.addAttribute("employees", employeeService.getAllEmployees());
         return "employees";
     }
 
-    @GetMapping()
+    // Get employee by Id
+    @GetMapping("employee/{id}")
     public String getEmployee(@RequestParam(name = "id") int id, Model model) {
         model.addAttribute("employee", employeeService.getEmployeeWithCode(id));
         return "employee";
     }
 
+    // Going to create employee page
     @GetMapping("/createEmployee")
     public String createEmployeeForm(Model model) {
-        return "createEmployee";
+        return "employee";
     }
 
     @ModelAttribute("employee")
@@ -45,12 +48,14 @@ public class EmployeeController {
         return new Employee();
     }
 
+    // Creating a new employee
     @PostMapping("/create")
     public String createEmployee(@Valid @ModelAttribute(name = "employee") Employee employee) {
         employeeService.createEmployee(employee);
         return "redirect:/allEmployees";
     }
 
+    // Deleting a employee
     @GetMapping("/delete/{id}")
     public String deleteEmployee(@RequestParam(name = "id") int id) {
         employeeService.deleteEmployee(id);
@@ -58,9 +63,16 @@ public class EmployeeController {
 
     }
 
+    // Searching a employee whith his name
     @GetMapping("/search")
     public String searchEmployee(@RequestParam(name = "name") String name, Model model) {
         model.addAttribute("employees", employeeService.findByName(name));
         return "employees";
     }
+
+    // Updating a employee
+    // @PatchMapping("/update")
+    // public String updateEmployee(@RequestParam(name="id")int id, Model model){
+
+    // }
 }

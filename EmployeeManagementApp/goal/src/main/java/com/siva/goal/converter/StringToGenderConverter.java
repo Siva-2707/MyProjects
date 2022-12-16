@@ -3,7 +3,7 @@ package com.siva.goal.converter;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
 
-import com.siva.goal.model.Gender;
+import com.siva.goal.model.Enum.Gender;
 
 public class StringToGenderConverter implements Converter<String, Gender> {
 

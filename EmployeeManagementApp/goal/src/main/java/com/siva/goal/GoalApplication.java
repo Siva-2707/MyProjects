@@ -1,15 +1,17 @@
 package com.siva.goal;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.siva.goal.model.EducationBackground;
-import com.siva.goal.model.Employee;
-import com.siva.goal.model.Gender;
+import com.siva.goal.model.Employee.Employee;
+import com.siva.goal.model.Enum.Gender;
+import com.siva.goal.model.Enum.Relationship;
+import com.siva.goal.model.Family.FamilyDetails;
+import com.siva.goal.model.Family.Member;
 import com.siva.goal.service.EmployeeService;
 
 @SpringBootApplication
@@ -34,10 +36,15 @@ public class GoalApplication implements CommandLineRunner {
 		employee.setLastName("Bala");
 		employee.setGender(Gender.MALE);
 		employee.setEmail("siva@gmail.com");
-		List<EducationBackground> list = employee.getEducationBackgrounds();
-		list.add(new EducationBackground("SMVEC", 5, "2021", 85));
-		list.add(new EducationBackground("AHSS", 5, "2017", 95));
-		employee.setEducationBackgrounds(list);
+		// List<EducationBackground> list = employee.getEducationBackgrounds();
+		FamilyDetails familyDetails = new FamilyDetails();
+		Member member = new Member(Relationship.FATHER, "Bala", Gender.MALE, null, null, null);
+		employee.setFamilyDetails(familyDetails);
+		employee.getFamilyDetails().setMembers(new ArrayList<>());
+		employee.getFamilyDetails().getMembers().add(member);
+		// list.add(new EducationBackground("SMVEC", 5, "2021", 85));
+		// list.add(new EducationBackground("AHSS", 5, "2017", 95));
+		// employee.setEducationBackgrounds(list);
 		employeeService.createEmployee(employee);
 	}
 }

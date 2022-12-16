@@ -82,3 +82,28 @@ EMP_EDUCATION
 
 PAST_EXP
 - 
+
+
+
+
+13-12-2022
+
+Blood Group,
+Aadar card,
+ESI Number
+PF number
+Religion - Hindu, Cristian, Muslim, other.
+Bank Details - API
+
+Family Details,
+
+Members,
+
+Realtionship, Name, Gender, Contact, Qualification, Current Working place
+Relationships -> Father, Mother, Spouse, Elder Brother, Elder sister, Younger Brother, Younger Sister, other.
+
+
+Filters,
+Current exp in company,
+Age filter,
+Depratmet wise filter.

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Management</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link th:href="@{css/employee.css}" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="../static/css/employee.css" /> -->
+  </head>
+  <body>
+    <div class="header">
+      <header>Create a new Employee</header>
+    </div>
+    <div class="form">
+      <form th:action="@{create}" th:object="${employee}" method="post" class="employeeForm">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="firstName">First Name</label>
+            <input class="form-control" id="firstName" placeholder="First Name" th:field="*{firstName}" required="true" />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="lastName">Last Name</label>
+            <input class="form-control" id="lastName" placeholder="Last Name" th:field="*{lastName}" required="true" />
+          </div>
+        </div>
+        <div class="form-row gender-row">
+          <div class="gender">
+            <label for="genders">Gender :</label>
+            <div class="genders">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="male" value="Male" th:field="*{gender}" />
+                <label class="form-check-label" for="male">Male</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="female" value="Female" th:field="*{gender}" />
+                <label class="form-check-label" for="female">Female</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="other" value="Other" th:field="*{gender}" />
+                <label class="form-check-label" for="other">Other</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="email">Email</label>
+            <input class="form-control" id="email" placeholder="Email" th:field="*{email}" required="true" />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="dateOfBirth">Date of Birth</label>
+            <input type="date" class="form-control" id="dateOfBirth" />
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="inputAddress">Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" />
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">City</label>
+            <input type="text" class="form-control" id="inputCity" />
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">State</label>
+            <input type="text" class="form-control" id="inputState" />
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputZip">Pincode</label>
+            <input type="text" class="form-control" id="inputZip" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="dateOfJoining">Date of Joining</label>
+            <input type="date" class="form-control" id="dateOfJoining" />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="designation">Designation</label>
+            <select name="designations" id="designation" class="form-control"></select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="department">Department</label>
+            <select name="departments" id="department" class="form-control"></select>
+          </div>
+        </div>
+        <div class="eduBgrndForm">
+          <div class="form-row edu-bgrnd-row">
+            <div class="form-group col-md-6">
+              <label for="institution">Institution</label>
+              <input type="text" id="institution" class="form-control" />
+            </div>
+            <div class="form-group col-md-2">
+              <label for="duration ">Course Duration</label>
+              <input type="text" id="duration" class="form-control" />
+            </div>
+            <div class="form-group col-md-2">
+              <label for="yearOfPassing">Year of Passing</label>
+              <input type="text" id="yearOfPassing" class="form-control" />
+            </div>
+            <div class="form-group col-md-2">
+              <label for="percentage">Percentage</label>
+              <input type="text" id="percentage" class="form-control" />
+            </div>
+          </div>
+          <button class="btn btn-outline-secondary" id="eduBgrndBtn" class="form" onclick="onClickEduBgrndBtn()">Add More</button>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+      </form>
+    </div>
+  </body>
+  <!-- <script src2="../static/js/employee.js"></script> -->
+  <script th:src="@{js/employee.js}"></script>
+</html>
