@@ -11,7 +11,6 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,6 +24,8 @@ import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
+import com.siva.goal.model.Address;
+import com.siva.goal.model.BankAccount;
 import com.siva.goal.model.Contact;
 import com.siva.goal.model.Enum.Gender;
 import com.siva.goal.model.Family.FamilyDetails;
@@ -60,16 +61,13 @@ public class Employee {
         @Enumerated(EnumType.STRING)
         private Gender gender;
 
-        private String address;
-
-        private String city;
-
-        private String state;
-
-        private String pincode;
+        private String bloodGrp;
 
         @Embedded
-        private List<Contact> contacts = new ArrayList<>();
+        private Address address;
+
+        @Embedded
+        private Contact contact;
 
         private String desigination;
 
@@ -91,19 +89,29 @@ public class Employee {
 
         private int totalExperience;
 
+        private String aadharNumber;
+
         @OneToOne(cascade = CascadeType.ALL)
         @JoinColumn(name = "fam_dtl_pk", referencedColumnName = "id")
         private FamilyDetails familyDetails;
 
-        @OneToMany(targetEntity = EducationBackground.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-        @JoinColumn(name = "edu_bgrd_pk", referencedColumnName = "id")
+        @OneToMany(cascade = CascadeType.ALL)
+        @JoinColumn(name = "emp_id")
         private List<EducationBackground> educationBackgrounds = new ArrayList<>();
 
+        @OneToMany(cascade = CascadeType.ALL)
+        @JoinColumn(name = "emp_id")
+        private List<BankAccount> bankAccounts = new ArrayList<>();
+
         public int getEmpAge() {
+                if (dateOfBirth == null)
+                        return 0;
                 return Period.between(dateOfBirth, LocalDate.now()).getYears();
         }
 
         public int getCurrentCompanyExperience() {
+                if (dateOfJoining == null)
+                        return 0;
                 return Period.between(dateOfJoining, LocalDate.now()).getYears();
         }
 

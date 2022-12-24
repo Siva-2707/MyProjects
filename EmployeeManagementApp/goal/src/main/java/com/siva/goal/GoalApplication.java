@@ -1,34 +1,23 @@
 package com.siva.goal;
 
-import java.util.ArrayList;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.siva.goal.model.Employee.Employee;
-import com.siva.goal.model.Enum.Gender;
-import com.siva.goal.model.Enum.Relationship;
-import com.siva.goal.model.Family.FamilyDetails;
-import com.siva.goal.model.Family.Member;
-import com.siva.goal.service.EmployeeService;
-
 @SpringBootApplication
-public class GoalApplication implements CommandLineRunner {
+public class GoalApplication {
 
-	private final EmployeeService employeeService;
+	// private final EmployeeService employeeService;
 
-	@Autowired
-	public GoalApplication(EmployeeService employeeService) {
-		this.employeeService = employeeService;
-	}
+	// @Autowired
+	// public GoalApplication(EmployeeService employeeService) {
+	// 	this.employeeService = employeeService;
+	// }
 
 	public static void main(String[] args) {
 		SpringApplication.run(GoalApplication.class, args);
 	}
 
-	@Override
+	/*@Override
 	public void run(String... args) throws Exception {
 		Employee employee = new Employee();
 		employee.setId(1);
@@ -45,6 +34,19 @@ public class GoalApplication implements CommandLineRunner {
 		// list.add(new EducationBackground("SMVEC", 5, "2021", 85));
 		// list.add(new EducationBackground("AHSS", 5, "2017", 95));
 		// employee.setEducationBackgrounds(list);
+		BankAccount bankAccount = new BankAccount();
+		bankAccount.setAccountNumber("1245");
+		bankAccount.setBranch("PY");
+		employee.getBankAccounts().add(bankAccount);
 		employeeService.createEmployee(employee);
+	
+		// Employee empl = employeeService.getEmployeeWithCode(1);
+		// List<BankAccount> accounts = empl.getBankAccounts();
+		// if (accounts != null)
+		// 	System.out.println(accounts.get(0));
+		// // System.out.println(empl);
+	
 	}
+	
+	*/
 }

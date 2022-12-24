@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.siva.goal.model.Address;
 import com.siva.goal.model.Employee.Employee;
 import com.siva.goal.service.EmployeeService;
 
@@ -43,11 +44,6 @@ public class EmployeeController {
         return "employee";
     }
 
-    @ModelAttribute("employee")
-    public Employee getEmployee() {
-        return new Employee();
-    }
-
     // Creating a new employee
     @PostMapping("/create")
     public String createEmployee(@Valid @ModelAttribute(name = "employee") Employee employee) {
@@ -75,4 +71,16 @@ public class EmployeeController {
     // public String updateEmployee(@RequestParam(name="id")int id, Model model){
 
     // }
+
+    /***************************** Model Attribute ******************************** */
+    @ModelAttribute("employee")
+    public Employee getEmployee() {
+        return new Employee();
+    }
+
+    @ModelAttribute("address")
+    public Address getAddress() {
+        return new Address();
+    }
+
 }

@@ -13,6 +13,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Contact {
-    private String description;
+    private String type;
     private String contact;
 }
