@@ -1,0 +1,27 @@
+.about {
+  background-image: url(/img/about-bgrnd.jpeg);
+}
+.content {
+  display: block;
+  padding-top: 2rem;
+  margin: 0 10%;
+  align-content: center;
+  div {
+    padding-bottom: 2rem;
+  }
+
+  h2 {
+    color: lightcyan;
+  }
+  .experience {
+    h3 {
+      display: inline;
+    }
+    .years {
+      float: right;
+    }
+    .role {
+      display: block;
+    }
+  }
+}

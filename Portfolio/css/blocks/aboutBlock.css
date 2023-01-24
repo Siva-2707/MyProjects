@@ -1,43 +1,25 @@
-.content-area {
-  margin: 0 auto;
-  width: 80%;
-  padding: 1rem 2rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+.about {
+  background-image: url(/img/about-bgrnd.jpeg);
 }
-.sec2-abt {
-  padding: 1rem 0;
+
+.content {
+  display: block;
+  padding-top: 2rem;
+  margin: 0 10%;
+  align-content: center;
 }
-.sec2-abt h1 {
-  font-size: 2.5rem;
-  padding-bottom: 1rem;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 300;
-  font-style: italic;
+.content div {
+  padding-bottom: 2rem;
 }
-.sec2-abt h3 {
-  padding-bottom: 1rem;
+.content h2 {
+  color: lightcyan;
 }
-.desc {
-  display: flex;
-  flex-wrap: nowrap;
+.content .experience h3 {
+  display: inline;
 }
-/* .desc h4 {
-  width: 20vw;
-} */
-.skill-container > div h1,
-.tools-container > div h1 {
-  padding: 0;
+.content .experience .years {
+  float: right;
 }
-.skill-container > div ul,
-.tools-container > div ul {
-  display: flex;
-  justify-content: center;
-}
-.skill-container > div li,
-.tools-container > div li {
-  padding: 1rem;
-  font-size: 1.5rem;
-}
+.content .experience .role {
+  display: block;
+}/*# sourceMappingURL=aboutBlock.css.map */
