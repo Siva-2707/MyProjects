@@ -46,6 +46,8 @@ body {
 }
 .container .product-list {
   padding: 1rem 0 0 0;
+  display: flex;
+  flex-direction: column;
 }
 .container .product-list .product {
   display: flex;

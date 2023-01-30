@@ -47,6 +47,8 @@ body {
   }
   .product-list {
     padding: 1rem 0 0 0;
+    display: flex;
+    flex-direction: column;
     .product {
       display: flex;
       margin-bottom: 0.5rem;
