@@ -2,7 +2,7 @@
 
 Here a simple calculator developed using HTML, CSS and JS.
 
-![Calculator](http://github.com/Siva-2707/MyProjects/Calculator/image.png)
+![Calculator](https://github.com/Siva-2707/MyProjects/blob/main/Calculator/image.png)
 
 ## Steps to run the project:
 
